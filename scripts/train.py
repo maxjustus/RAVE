@@ -105,6 +105,7 @@ def main(argv):
     RUN_NAME = f'{FLAGS.name}_{gin_hash}'
 
     os.makedirs(os.path.join("runs", RUN_NAME), exist_ok=True)
+    torch.set_float32_matmul_precision("high")
 
     if FLAGS.gpu == [-1]:
         gpu = 0
